@@ -22,7 +22,7 @@ function App() {
   ])
 
   function fetchNotes(){
-    axios.get("http://localhost:3000/notes")
+    axios.get("https://fullstack-1-82id.onrender.com/notes")
   .then((res)=>{
     setNotes(res.data.notes)
   })
@@ -37,7 +37,7 @@ function handleSubmit(e){
 
   const {title, description} = e.target.elements
 
-  axios.post("http://localhost:3000/notes",{
+  axios.post("https://fullstack-1-82id.onrender.com/notes",{
     title: title.value,
     description: description.value
   })
@@ -51,7 +51,7 @@ function handleSubmit(e){
 
 
 function handleDeleteNote(id){
-  axios.delete(`http://localhost:3000/notes/${id }`)
+  axios.delete(`https://fullstack-1-82id.onrender.com/notes/${id }`)
   .then(()=>{
     fetchNotes()
   })
@@ -70,7 +70,7 @@ function handleSubmit(e){
   e.preventDefault()
 
   if(editId){
-    axios.patch(`http://localhost:3000/notes/${editId}`,{
+    axios.patch(`https://fullstack-1-82id.onrender.com/${editId}`,{
       title,
       description
     })
@@ -83,7 +83,7 @@ function handleSubmit(e){
     .catch(err=>console.log(err))
 
   }else{
-    axios.post("http://localhost:3000/notes",{
+    axios.post("https://fullstack-1-82id.onrender.com/notes",{
       title,
       description
     })
