@@ -31,23 +31,6 @@ function App() {
   useEffect(()=>{
      fetchNotes()
   },[])
- 
-function handleSubmit(e){
-  e.preventDefault()
-
-  const {title, description} = e.target.elements
-
-  axios.post("https://fullstack-1-82id.onrender.com/notes",{
-    title: title.value,
-    description: description.value
-  })
-  .then(()=>{
-    fetchNotes()
-    setTitle("")
-    setDescription("")
-  })
-  .catch(err => console.log(err))
-}
 
 
 function handleDeleteNote(id){
