@@ -44,11 +44,13 @@ function handleDeleteNote(id){
 const [title,setTitle] = useState("")
 const [description,setDescription] = useState("")
 const [editId,setEditId] = useState(null)
+
 function handleEdit(note){
   setTitle(note.title)
   setDescription(note.description)
   setEditId(note._id)
 }
+
 function handleSubmit(e){
   e.preventDefault()
 
@@ -99,7 +101,7 @@ function handleSubmit(e){
         return  <div className="note">
         <h1>{note.title}</h1>
         <p>{note.description}</p>
-        <button onClick={()=>handleEdit(note)}>Edit</button>
+        <button onClick={()=>{handleEdit(note._id)}}>Edit</button>
         <button onClick={()=>{handleDeleteNote(note._id)}}>Delete</button>
       </div>
 
